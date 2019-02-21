@@ -12,7 +12,6 @@ namespace ADSApi.Controllers
     public class StackController : ControllerBase
     {
         private List<SimpleItem> stack;
-        private string valor;
 
         private IMemoryCache _cache;
         private const string STACK_KEY = "stack";
@@ -33,15 +32,15 @@ namespace ADSApi.Controllers
         [HttpGet]
         public ActionResult<List<SimpleItem>> Get()
         {
-            return (List<SimpleItem>)_cache.Get(STACK_KEY);
+            return stack;
         }
 
-        [HttpPost("{value}")]
-        public ActionResult<string> Post(string value)
+        [HttpPost]
+        public ActionResult<string> Post(SimpleItem item)
         {
             string id = stack.Count.ToString();
-            SimpleItem item = new SimpleItem(id, value);
-            stack.Add(item);
+            SimpleItem itemToAdd = new SimpleItem(id, item.Value);
+            stack.Add(itemToAdd);
             return id;
         }
 

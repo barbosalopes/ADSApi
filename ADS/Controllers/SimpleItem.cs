@@ -13,9 +13,7 @@ namespace ADSApi.Controllers
             this.Id = id;
             this.Value = value;
         }
-
-        public SimpleItem(string id) : this(id, "Value of " + id) { }
-
+        
         public string Id { get; set; }
         public string Value { get; set; }
     }
