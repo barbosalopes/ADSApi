@@ -23,3 +23,7 @@ public int alg5(int[] a, int x) {
     }
     return -1;
 }
+
+Atividade de lab:
+
+Filas com leitos especificos (UTI, internação, enfermaria) com o passar do tempo ele melhora e vai para outro leito. 
