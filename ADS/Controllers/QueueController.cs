@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -11,7 +9,6 @@ namespace ADSApi.Controllers
     public class QueueController : ControllerBase
     {
         private List<SimpleItem> queue;
-        private int nextId;
 
         private IMemoryCache _cache;
         private const string QUEUE_KEY = "queue";
