@@ -27,3 +27,61 @@ public int alg5(int[] a, int x) {
 Atividade de lab:
 
 Filas com leitos especificos (UTI, internação, enfermaria) com o passar do tempo ele melhora e vai para outro leito. 
+
+private Item<Type> First { set; get; }
+        private Item<Type> Last { set; get; }
+        private Item<Type> Aux { set; get; }
+
+        public Queue()
+        {
+            First = Last = null;
+        }
+
+        public int Size()
+        {
+            if (First == null) return 0;
+            else
+            {
+                int size = 1;
+                Aux = First;
+                while(Aux != null)
+                {
+                    size++;
+                    Aux = Aux.Next;
+                }
+                return size;
+            }
+        }
+
+        public bool IsEmpty()
+        {
+            return Size() == 0;
+        }
+
+        public void Insert(Type value)
+        {
+            Aux = new Item<Type>(value);
+            if (IsEmpty())
+                First = Last = Aux;
+            else
+            {
+                Last.Next = Aux;
+                Last = Aux;
+            }
+        }
+
+        public object Remove(Type value)
+        {
+            if (IsEmpty()) return null;
+            else
+            {
+                Aux = First;
+                while (Aux != null)
+                {
+                    if (Aux.Value.Equals(value)) return value;
+                    Aux = Aux.Next;
+                }
+
+                return null;
+            }
+        }
