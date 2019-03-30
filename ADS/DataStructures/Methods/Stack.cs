@@ -1,6 +1,6 @@
 ﻿using ADSApi.DataStructures.Item;
 
-namespace ConsoleApplication6.Methods
+namespace ADSApi.DataStructures.Methods
 {
     public class Stack <Type>
     {

@@ -14,7 +14,7 @@ namespace ConsoleApplication6.Methods
             double remaining_weight = weight - main_weight;
 
             // Cervical values 
-            for(int i = 0; i < 7)
+            //for(int i = 0; i < 7)
             
         }
     }

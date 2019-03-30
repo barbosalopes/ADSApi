@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 
-namespace ADSApi.Controllers
+namespace ADSApi.Controllers.Recursive
 {
     [Route("api/[controller]")]
     [ApiController]

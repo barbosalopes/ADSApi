@@ -4,7 +4,7 @@ namespace ADSApi.DataStructures.Methods
 {
     public class Queue <Type>
     {
-        private Item<Type> First, Last, Aux;
+        private Item<Type> First, Last;
 
         public Queue()
         {
@@ -16,8 +16,8 @@ namespace ADSApi.DataStructures.Methods
             if (First == null) return 0;
             else
             {
-                int size = 1;
-                Aux = First;
+                int size = 0;
+                Item<Type> Aux = First;
                 while (Aux != null)
                 {
                     size++;
@@ -34,7 +34,7 @@ namespace ADSApi.DataStructures.Methods
 
         public virtual void Insert(Type value)
         {
-            Aux = new Item<Type>(value);
+            Item<Type> Aux = new Item<Type>(value);
             if (IsEmpty())
                 First = Last = Aux;
             else
@@ -49,7 +49,24 @@ namespace ADSApi.DataStructures.Methods
             if (IsEmpty()) return null;
             else
             {
-                return null;   
+                Item<Type> Aux = First;
+                if (Aux.Value.Equals(value))
+                {
+                    First = Aux.Next;
+                    Aux.Next = null;
+                    return value;
+                }
+                do
+                {
+                    if(Aux.Next.Value.Equals(value))
+                    {
+                        Item<Type> ValueToReturn = Aux.Next;
+                        ValueToReturn.Next = null;
+                        Aux.Next = Aux.Next.Next;
+                    }
+                } while (Aux.Next!=null);
+
+                return null;
             }
         }
 
@@ -63,6 +80,22 @@ namespace ADSApi.DataStructures.Methods
             }
 
             return default(Type);
+        }
+
+        public Type[] ToArray()
+        {
+            Type[] toReturn = new Type[Size()];
+            Item<Type> aux = First;
+            int i = 0;
+
+            while (aux != null)
+            {
+                toReturn[i] = aux.Value;
+                i++;
+                aux = aux.Next;
+            }
+
+            return toReturn;
         }
     }
 }
